@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- <STROKE ANDROID:WIDTH="1DP" ANDROID:COLOR="@COLOR/STROKE" /> -->
+
+
+    <!-- 填充框内的颜色 -->
+
+    <solid android:color="@color/white" />
+    <!-- 边框的颜色 -->
+
+    <stroke
+        android:width="1dip"
+        android:color="@color/my_grey" />
+    <!-- 圆角的眼色，bottomRightRadius是左下角而不是右下角，bottomLeftRadius右下角 -->
+
+    <corners
+        android:bottomLeftRadius="18dp"
+        android:bottomRightRadius="18dp"
+        android:topLeftRadius="18dp"
+        android:topRightRadius="18dp"
+        android:color="@color/white" />
+
+</shape>
