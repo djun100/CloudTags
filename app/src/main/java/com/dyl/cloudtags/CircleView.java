@@ -50,7 +50,7 @@ public class CircleView extends TextView {
 	}
 
 	/**
-	 * 设置通知个数显示
+	 * 璁剧疆閫氱煡涓暟鏄剧ず
 	 * @param text
 	 */
 	public void setNotifiText(int text){

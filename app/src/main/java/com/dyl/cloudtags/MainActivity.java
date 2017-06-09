@@ -76,11 +76,11 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				String keyword = ((TextView) v).getText().toString();// »ñµÃµã»÷µÄ±êÇ©
+				String keyword = ((TextView) v).getText().toString();// è·å¾—ç‚¹å‡»çš„æ ‡ç­¾
 				world_shopping_search_input.setText(keyword);
 			}
 		});
-		// Ìí¼Ó
+		// æ·»åŠ 
 		feedKeywordsFlow(keywordsFlow, keywords);
 		keywordsFlow.go2Show(KeywordsFlow.ANIMATION_IN);
 	}
@@ -95,7 +95,7 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * ¶ÁÈ¡ÀúÊ·ËÑË÷¼ÇÂ¼
+	 * è¯»å–å†å²æœç´¢è®°å½•
 	 */
 	private void initSearchHistory() {
 		sp = getSharedPreferences(MainActivity.SEARCH_HISTORY, 0);
@@ -106,14 +106,14 @@ public class MainActivity extends Activity {
 			for (int i = 0; i < keywords.length; i++) {
 				searchItem.add(new SearchDataPojo().setContent(keywords[i]));
 			}
-		} else {// Èç¹ûSharedPreferencesÃ»ÓĞÖµµÃ»°£¬¾ÍÏÔÊ¾Ä¬ÈÏµÄÊı¾İ
-			keywords = new String[] { "¿ÚÎ¶Ïº", "Å£ÍÜ", "»ğ¹ø", "Õæ¹¦·ò", "ÁÏÀí",
-					"ÃÜÊÒÌÓ", "Ìì³É·¿", "²¨±È°¬" };
+		} else {// å¦‚æœSharedPreferencesæ²¡æœ‰å€¼å¾—è¯ï¼Œå°±æ˜¾ç¤ºé»˜è®¤çš„æ•°æ®
+			keywords = new String[] { "å£å‘³è™¾", "ç‰›è›™", "ç«é”…", "çœŸåŠŸå¤«", "æ–™ç†",
+					"å¯†å®¤é€ƒ", "å¤©æˆæˆ¿", "æ³¢æ¯”è‰¾" };
 		}
 	}
 
 	/*
-	 * ±£´æËÑË÷¼ÇÂ¼
+	 * ä¿å­˜æœç´¢è®°å½•
 	 */
 	private void saveSearchHistory() {
 		String text = world_shopping_search_input.getText().toString().trim();
@@ -149,10 +149,10 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	// Çå³ıÀúÊ·Êı¾İ
+	// æ¸…é™¤å†å²æ•°æ®
 	private void clearSearchHistory() {
 		searchItem.removeAll(searchItem);
 		sp.edit().clear().commit();
-		Toast.makeText(this, "Çå³ıÀúÊ·¼ÇÂ¼", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "æ¸…é™¤å†å²è®°å½•", Toast.LENGTH_LONG).show();
 	}
 }

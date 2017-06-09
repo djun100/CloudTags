@@ -28,17 +28,17 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 	public static final int IDX_Y = 1;
 	public static final int IDX_TXT_LENGTH = 2;
 	public static final int IDX_DIS_Y = 3;
-	/** ÓÉÍâÖÁÄÚµÄ¶¯»­¡£ */
+	/** ç”±å¤–è‡³å†…çš„åŠ¨ç”»ã€‚ */
 	public static final int ANIMATION_IN = 1;
-	/** ÓÉÄÚÖÁÍâµÄ¶¯»­¡£ */
+	/** ç”±å†…è‡³å¤–çš„åŠ¨ç”»ã€‚ */
 	public static final int ANIMATION_OUT = 2;
-	/** Î»ÒÆ¶¯»­ÀàĞÍ£º´ÓÍâÎ§ÒÆ¶¯µ½×ø±êµã¡£ */
+	/** ä½ç§»åŠ¨ç”»ç±»å‹ï¼šä»å¤–å›´ç§»åŠ¨åˆ°åæ ‡ç‚¹ã€‚ */
 	public static final int OUTSIDE_TO_LOCATION = 1;
-	/** Î»ÒÆ¶¯»­ÀàĞÍ£º´Ó×ø±êµãÒÆ¶¯µ½ÍâÎ§¡£ */
+	/** ä½ç§»åŠ¨ç”»ç±»å‹ï¼šä»åæ ‡ç‚¹ç§»åŠ¨åˆ°å¤–å›´ã€‚ */
 	public static final int LOCATION_TO_OUTSIDE = 2;
-	/** Î»ÒÆ¶¯»­ÀàĞÍ£º´ÓÖĞĞÄµãÒÆ¶¯µ½×ø±êµã¡£ */
+	/** ä½ç§»åŠ¨ç”»ç±»å‹ï¼šä»ä¸­å¿ƒç‚¹ç§»åŠ¨åˆ°åæ ‡ç‚¹ã€‚ */
 	public static final int CENTER_TO_LOCATION = 3;
-	/** Î»ÒÆ¶¯»­ÀàĞÍ£º´Ó×ø±êµãÒÆ¶¯µ½ÖĞĞÄµã¡£ */
+	/** ä½ç§»åŠ¨ç”»ç±»å‹ï¼šä»åæ ‡ç‚¹ç§»åŠ¨åˆ°ä¸­å¿ƒç‚¹ã€‚ */
 	public static final int LOCATION_TO_CENTER = 4;
 	public static final long ANIM_DURATION = 800l;
 	public static final int MAX = 12;
@@ -50,22 +50,22 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 	private static AlphaAnimation animAlpha2Transparent;
 	private static ScaleAnimation animScaleLarge2Normal, animScaleNormal2Large,
 			animScaleZero2Normal, animScaleNormal2Zero;
-	/** ´æ´¢ÏÔÊ¾µÄ¹Ø¼ü×Ö¡£ */
+	/** å­˜å‚¨æ˜¾ç¤ºçš„å…³é”®å­—ã€‚ */
 	private Vector<String> vecKeywords;
 	private int width, height;
 	/**
-	 * go2Show()ÖĞ±»¸³ÖµÎªtrue£¬±êÊ¶¿ª·¢ÈËÔ±´¥·¢Æä¿ªÊ¼¶¯»­ÏÔÊ¾¡£<br/>
-	 * ±¾±êÊ¶µÄ×÷ÓÃÊÇ·ÀÖ¹ÔÚÌî³äkeywrodsÎ´Íê³ÉµÄ¹ı³ÌÖĞ»ñÈ¡µ½widthºÍheightºóÌáÇ°Æô¶¯¶¯»­¡£<br/>
-	 * ÔÚshow()·½·¨ÖĞÆä±»¸³ÖµÎªfalse¡£<br/>
-	 * ÕæÕıÄÜ¹»¶¯»­ÏÔÊ¾µÄÁíÒ»±ØÒªÌõ¼ş£ºwidth ºÍ height²»Îª0¡£<br/>
+	 * go2Show()ä¸­è¢«èµ‹å€¼ä¸ºtrueï¼Œæ ‡è¯†å¼€å‘äººå‘˜è§¦å‘å…¶å¼€å§‹åŠ¨ç”»æ˜¾ç¤ºã€‚<br/>
+	 * æœ¬æ ‡è¯†çš„ä½œç”¨æ˜¯é˜²æ­¢åœ¨å¡«å……keywrodsæœªå®Œæˆçš„è¿‡ç¨‹ä¸­è·å–åˆ°widthå’Œheightåæå‰å¯åŠ¨åŠ¨ç”»ã€‚<br/>
+	 * åœ¨show()æ–¹æ³•ä¸­å…¶è¢«èµ‹å€¼ä¸ºfalseã€‚<br/>
+	 * çœŸæ­£èƒ½å¤ŸåŠ¨ç”»æ˜¾ç¤ºçš„å¦ä¸€å¿…è¦æ¡ä»¶ï¼šwidth å’Œ heightä¸ä¸º0ã€‚<br/>
 	 */
 	private boolean enableShow;
 	private Random random;
 
 	private int txtAnimInType, txtAnimOutType;
-	/** ×î½üÒ»´ÎÆô¶¯¶¯»­ÏÔÊ¾µÄÊ±¼ä¡£ */
+	/** æœ€è¿‘ä¸€æ¬¡å¯åŠ¨åŠ¨ç”»æ˜¾ç¤ºçš„æ—¶é—´ã€‚ */
 	private long lastStartAnimationTime;
-	/** ¶¯»­ÔËĞĞÊ±¼ä¡£ */
+	/** åŠ¨ç”»è¿è¡Œæ—¶é—´ã€‚ */
 	private long animDuration;
 	private Context context;
 	public KeywordsFlow(Context context) {
@@ -116,12 +116,12 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 	}
 
 	/**
-	 * ¿ªÊ¼¶¯»­ÏÔÊ¾¡£<br/>
-	 * Ö®Ç°ÒÑ¾­´æÔÚµÄTextView½«»áÏÔÊ¾ÍË³ö¶¯»­¡£<br/>
+	 * å¼€å§‹åŠ¨ç”»æ˜¾ç¤ºã€‚<br/>
+	 * ä¹‹å‰å·²ç»å­˜åœ¨çš„TextViewå°†ä¼šæ˜¾ç¤ºé€€å‡ºåŠ¨ç”»ã€‚<br/>
 	 * 
-	 * @return Õı³£ÏÔÊ¾¶¯»­·µ»Øtrue£»·´Ö®Îªfalse¡£·µ»ØfalseÔ­ÒòÈçÏÂ£º<br/>
-	 *         1.Ê±¼äÉÏ²»ÔÊĞí£¬ÊÜlastStartAnimationTimeµÄÖÆÔ¼£»<br/>
-	 *         2.Î´»ñÈ¡µ½widthºÍheightµÄÖµ¡£<br/>
+	 * @return æ­£å¸¸æ˜¾ç¤ºåŠ¨ç”»è¿”å›trueï¼›åä¹‹ä¸ºfalseã€‚è¿”å›falseåŸå› å¦‚ä¸‹ï¼š<br/>
+	 *         1.æ—¶é—´ä¸Šä¸å…è®¸ï¼Œå—lastStartAnimationTimeçš„åˆ¶çº¦ï¼›<br/>
+	 *         2.æœªè·å–åˆ°widthå’Œheightçš„å€¼ã€‚<br/>
 	 */
 	public boolean go2Show(int animType) {
 		if (System.currentTimeMillis() - lastStartAnimationTime > animDuration) {
@@ -181,7 +181,7 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 			int xItem = width / size, yItem = height / size;
 			LinkedList<Integer> listX = new LinkedList<Integer>(), listY = new LinkedList<Integer>();
 			for (int i = 0; i < size; i++) {
-				// ×¼±¸Ëæ»úºòÑ¡Êı£¬·Ö±ğ¶ÔÓ¦x/yÖáÎ»ÖÃ
+				// å‡†å¤‡éšæœºå€™é€‰æ•°ï¼Œåˆ†åˆ«å¯¹åº”x/yè½´ä½ç½®
 				listX.add(i * xItem);
 				listY.add(i * yItem + (yItem >> 2));
 			}
@@ -189,9 +189,9 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 			LinkedList<CircleView> listTxtBottom = new LinkedList<CircleView>();
 			for (int i = 0; i < size; i++) {
 				String keyword = vecKeywords.get(i);
-				// Ëæ»úÎ»ÖÃ£¬²ÚÖµ
+				// éšæœºä½ç½®ï¼Œç³™å€¼
 				int xy[] = randomXY(random, listX, listY, xItem);
-				// ÊµÀı»¯TextView
+				// å®ä¾‹åŒ–TextView
 				final CircleView txv = new CircleView(getContext());
 				txv.setBackgroundResource(R.drawable.text_view_border);
 				txv.setGravity(Gravity.CENTER);
@@ -207,17 +207,17 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 	            GradientDrawable myGrad = (GradientDrawable)txv.getBackground();
 	            myGrad.setColor(mColor);
 //	            txv.setBackgroundColor(mColor);
-				// »ñÈ¡ÎÄ±¾³¤¶È
+				// è·å–æ–‡æœ¬é•¿åº¦
 				Paint paint = txv.getPaint();
 				int strWidth = (int) Math.ceil(paint.measureText(keyword));
 				xy[IDX_TXT_LENGTH] = strWidth;
-				// µÚÒ»´ÎĞŞÕı:ĞŞÕıx×ø±ê
+				// ç¬¬ä¸€æ¬¡ä¿®æ­£:ä¿®æ­£xåæ ‡
 				if (xy[IDX_X] + strWidth > width - (xItem >> 1)) {
 					int baseX = width - strWidth;
-					// ¼õÉÙÎÄ±¾ÓÒ±ßÔµÒ»ÑùµÄ¸ÅÂÊ
+					// å‡å°‘æ–‡æœ¬å³è¾¹ç¼˜ä¸€æ ·çš„æ¦‚ç‡
 					xy[IDX_X] = baseX - xItem + random.nextInt(xItem >> 1);
 				} else if (xy[IDX_X] == 0) {
-					// ¼õÉÙÎÄ±¾×ó±ßÔµÒ»ÑùµÄ¸ÅÂÊ
+					// å‡å°‘æ–‡æœ¬å·¦è¾¹ç¼˜ä¸€æ ·çš„æ¦‚ç‡
 					xy[IDX_X] = Math.max(random.nextInt(xItem), xItem / 3);
 				}
 				xy[IDX_DIS_Y] = Math.abs(xy[IDX_Y] - yCenter);
@@ -235,7 +235,7 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 		return false;
 	}
 
-	/** ĞŞÕıTextViewµÄY×ø±ê½«½«ÆäÌí¼Óµ½ÈİÆ÷ÉÏ¡£ */
+	/** ä¿®æ­£TextViewçš„Yåæ ‡å°†å°†å…¶æ·»åŠ åˆ°å®¹å™¨ä¸Šã€‚ */
 	private void attach2Screen(LinkedList<CircleView> listTxt, int xCenter,
 			int yCenter, int yItem) {
 		int size = listTxt.size();
@@ -243,16 +243,16 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 		for (int i = 0; i < size; i++) {
 			CircleView txv = listTxt.get(i);
 			int[] iXY = (int[]) txv.getTag();
-			// µÚ¶ş´ÎĞŞÕı:ĞŞÕıy×ø±ê
+			// ç¬¬äºŒæ¬¡ä¿®æ­£:ä¿®æ­£yåæ ‡
 			int yDistance = iXY[IDX_Y] - yCenter;
-			// ¶ÔÓÚ×î¿¿½üÖĞĞÄµãµÄ£¬ÆäÖµ²»»á´óÓÚyItem<br/>
-			// ¶ÔÓÚ¿ÉÒÔÒ»Â·ÏÂ½µµ½ÖĞĞÄµãµÄ£¬Ôò¸ÃÖµÒ²ÊÇÆäÓ¦µ÷ÕûµÄ´óĞ¡<br/>
+			// å¯¹äºæœ€é è¿‘ä¸­å¿ƒç‚¹çš„ï¼Œå…¶å€¼ä¸ä¼šå¤§äºyItem<br/>
+			// å¯¹äºå¯ä»¥ä¸€è·¯ä¸‹é™åˆ°ä¸­å¿ƒç‚¹çš„ï¼Œåˆ™è¯¥å€¼ä¹Ÿæ˜¯å…¶åº”è°ƒæ•´çš„å¤§å°<br/>
 			int yMove = Math.abs(yDistance);
 			inner: for (int k = i - 1; k >= 0; k--) {
 				int[] kXY = (int[]) listTxt.get(k).getTag();
 				int startX = kXY[IDX_X];
 				int endX = startX + kXY[IDX_TXT_LENGTH];
-				// yÖáÒÔÖĞĞÄµãÎª·Ö¸ôÏß£¬ÔÚÍ¬Ò»²à
+				// yè½´ä»¥ä¸­å¿ƒç‚¹ä¸ºåˆ†éš”çº¿ï¼Œåœ¨åŒä¸€ä¾§
 				if (yDistance * (kXY[IDX_Y] - yCenter) > 0) {
 					if (isXMixed(startX, endX, iXY[IDX_X], iXY[IDX_X]
 							+ iXY[IDX_TXT_LENGTH])) {
@@ -260,7 +260,7 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 						if (tmpMove > yItem) {
 							yMove = tmpMove;
 						} else if (yMove > 0) {
-							// È¡ÏûÄ¬ÈÏÖµ¡£
+							// å–æ¶ˆé»˜è®¤å€¼ã€‚
 							yMove = 0;
 						}
 						break inner;
@@ -274,7 +274,7 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 						/ Math.abs(yDistance);
 				iXY[IDX_Y] = iXY[IDX_Y] - realMove;
 				iXY[IDX_DIS_Y] = Math.abs(iXY[IDX_Y] - yCenter);
-				// ÒÑ¾­µ÷Õû¹ıÇ°i¸öĞèÒªÔÙ´ÎÅÅĞò
+				// å·²ç»è°ƒæ•´è¿‡å‰iä¸ªéœ€è¦å†æ¬¡æ’åº
 				sortXYList(listTxt, i + 1);
 			}
 			FrameLayout.LayoutParams layParams = new FrameLayout.LayoutParams(
@@ -284,7 +284,7 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 			layParams.leftMargin = iXY[IDX_X];
 			layParams.topMargin = iXY[IDX_Y];
 			addView(txv, layParams);
-			// ¶¯»­
+			// åŠ¨ç”»
 			AnimationSet animSet = getAnimationSet(iXY, xCenter, yCenter,
 					txtAnimInType);
 			txv.startAnimation(animSet);
@@ -327,12 +327,12 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 	}
 
 	/**
-	 * ¸ù¾İÓëÖĞĞÄµãµÄ¾àÀëÓÉ½üµ½Ô¶½øĞĞÃ°ÅİÅÅĞò¡£
+	 * æ ¹æ®ä¸ä¸­å¿ƒç‚¹çš„è·ç¦»ç”±è¿‘åˆ°è¿œè¿›è¡Œå†’æ³¡æ’åºã€‚
 	 * 
 	 * @param endIdx
-	 *            ÆğÊ¼Î»ÖÃ¡£
+	 *            èµ·å§‹ä½ç½®ã€‚
 	 * @param txtArr
-	 *            ´ıÅÅĞòµÄÊı×é¡£
+	 *            å¾…æ’åºçš„æ•°ç»„ã€‚
 	 * 
 	 */
 	private void sortXYList(LinkedList<CircleView> listTxt, int endIdx) {
@@ -349,7 +349,7 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 		}
 	}
 
-	/** AÏß¶ÎÓëBÏß¶ÎËù´ú±íµÄÖ±ÏßÔÚXÖáÓ³ÉäÉÏÊÇ·ñÓĞ½»¼¯¡£ */
+	/** Açº¿æ®µä¸Bçº¿æ®µæ‰€ä»£è¡¨çš„ç›´çº¿åœ¨Xè½´æ˜ å°„ä¸Šæ˜¯å¦æœ‰äº¤é›†ã€‚ */
 	private boolean isXMixed(int startA, int endA, int startB, int endB) {
 		boolean result = false;
 		if (startB >= startA && startB <= endA) {
@@ -364,7 +364,7 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 		return result;
 	}
 
-	//µÃµ½Ëæ»ú×ø±ê
+	//å¾—åˆ°éšæœºåæ ‡
 	private int[] randomXY(Random ran, LinkedList<Integer> listX,
 			LinkedList<Integer> listY, int xItem) {
 		int[] arr = new int[4];
@@ -391,7 +391,7 @@ public class KeywordsFlow extends FrameLayout implements OnGlobalLayoutListener 
 		vecKeywords.clear();
 	}
 
-	/** Ö±½ÓÇå³ıËùÓĞµÄTextView¡£ÔÚÇå³ıÖ®Ç°²»»áÏÔÊ¾¶¯»­¡£ */
+	/** ç›´æ¥æ¸…é™¤æ‰€æœ‰çš„TextViewã€‚åœ¨æ¸…é™¤ä¹‹å‰ä¸ä¼šæ˜¾ç¤ºåŠ¨ç”»ã€‚ */
 	public void rubAllViews() {
 		removeAllViews();
 	}
